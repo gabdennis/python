@@ -57,3 +57,14 @@ kaggle['Season'] = np.where(kaggle['Month_Num'].isin([12, 1, 2]), 'Winter',
 # Print the database
 kaggle
 ```
+# Simple Statistical Analysis
+
+After cleaning the data, we can then perform some simple statistics. We could calculate the average revenue by Week, Month, and Season.
+
+```python
+# Calculate avg rev by weekday, month, and season
+avg_rev_weekday = kaggle.groupby('Day of Week')['Revenue'].mean()reset_index()
+avg_rev_month = kaggle.groupby('Month')['Revenue'].mean().reset_index()
+avg_rev_season = kaggle.groupby('Season')['Revenue'].mean().reset_index()
+```
+
